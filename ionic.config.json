@@ -1,0 +1,7 @@
+{
+  "name": "Let's Cook!",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
