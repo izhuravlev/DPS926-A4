@@ -20,6 +20,7 @@ export class Tab1Page implements OnInit {
   searchChanged() {
     this.isLoading = true;
     this.results = this.recepiesService.getMealByName(this.searchTerm);
+    console.log(this.results);
     this.isLoading = false;
   }
 }
