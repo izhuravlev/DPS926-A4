@@ -14,6 +14,6 @@ export class Tab2Page {
 
   ngOnInit() {
     this.results = this.recepiesService.getRandomMeal();
-    console.log('Done!');
+    console.log(this.results);
   }
 }

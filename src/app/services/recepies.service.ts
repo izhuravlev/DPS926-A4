@@ -59,7 +59,7 @@ export class RecepiesService {
   getRandomMeal(): Observable<any> {
     return this.http
       .get(`${this.url + this.apiLink}random.php?&apikey=${this.apiKey}`)
-      .pipe(map((data) => data['meals']));
+      .pipe(map((data) => data['meals'][0]));
   }
 
   // Get Meal by Name
@@ -75,6 +75,6 @@ export class RecepiesService {
   getMealById(id: string): Observable<any> {
     return this.http
       .get(`${this.url + this.apiLink}lookup.php?i=${id}&apikey=${this.apiKey}`)
-      .pipe(map((data) => data['meals']));
+      .pipe(map((data) => data['meals'][0]));
   }
 }

@@ -10,30 +10,30 @@
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let item of meal">
-    <ion-card-header>
-      <ion-card-title>{{item.strMeal}} </ion-card-title>
-      <!-- <ion-card-subtitle class="year">
-        {{ movieInfo.Year}}
-      </ion-card-subtitle>
-      <ion-card-subtitle>
-        {{ movieInfo.Released }}
-      </ion-card-subtitle> -->
-    </ion-card-header>
-    <ion-card-content class="plot" text-center>
-      <img [src]="item.strMealThumb" class="main-image" alt="" />
-      {{ item.strInstructions }}
-      <!-- <ion-item>
-      <ion-label>More details</ion-label>
-      <ion-select [interfaceOptions]="{cssClass:'select'}">
-        <ion-select-option>Time: {{movieInfo.Runtime}}</ion-select-option>
-        <ion-select-option>Ranking: {{movieInfo.imdbRating}}/10</ion-select-option>
-        <ion-select-option>Genre: {{movieInfo.Genre}}</ion-select-option>
-        <ion-select-option>Awards: {{movieInfo.Awards}}</ion-select-option>
-      </ion-select>
-    </ion-item>
-      <h3 class="rating"></h3>
-      <h2 class="genre"></h2> -->
-    </ion-card-content>
-  </ion-card>
+  <ion-grid *ngIf="meal">
+    <ion-row>
+      <ion-col>
+        <img [src]="meal.strMealThumb" alt="" />
+        <h1>{{meal.strMeal}}</h1>
+        <h5>{{meal.strCategory}}, {{meal.strArea}}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1>Ingredients:</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let item of ingredients">
+      <ion-col> {{item.key}} </ion-col>
+      <ion-col> {{item.value}} </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1>Instructions:</h1>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngFor="let item of instructions">
+      <ion-col> {{item}} </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -1,3 +1,19 @@
-<p>
-  recepies-list works!
-</p>
+<ion-list>
+  <ion-item
+    button
+    *ngFor="let item of items"
+    [routerLink]="['/recepi-details', item.idMeal]"
+  >
+    <img
+      [src]="item.strMealThumb"
+      height="60"
+      style="border-radius: 20%; padding: 5px"
+      *ngIf="item.Poster != 'Not Available'"
+      alt=""
+    />
+
+    <ion-label text-wrap>
+      <h3>{{ item.strMeal }}</h3>
+    </ion-label>
+  </ion-item>
+</ion-list>

@@ -1,13 +1,13 @@
 <ion-card
   button
-  *ngFor="let item of meal | async"
-  [routerLink]="['/recepi-details', item.idMeal]"
+  *ngIf="meal | async as meal1"
+  [routerLink]="['/recepi-details', meal1.idMeal]"
 >
   <!-- [routerLink]="['/movie-details', item.imdbID]" -->
-  <img [src]="item.strMealThumb" />
+  <img [src]="meal1.strMealThumb" />
   <ion-card-header>
-    <ion-card-title>{{ item.strMeal }}</ion-card-title>
-    <ion-card-subtitle>{{ item.strTags }}</ion-card-subtitle>
+    <ion-card-title>{{ meal1.strMeal }}</ion-card-title>
+    <ion-card-subtitle>{{ meal1.strTags }}</ion-card-subtitle>
   </ion-card-header>
 
   <!-- <ion-card-content> {{ item.strInstructions }} </ion-card-content> -->

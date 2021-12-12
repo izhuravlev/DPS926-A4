@@ -1,7 +1,10 @@
 {
   "name": "Let's Cook!",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
   },
   "type": "angular"
 }

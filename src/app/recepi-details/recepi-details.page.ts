@@ -9,6 +9,8 @@ import { RecepiesService } from 'src/app/services/recepies.service';
 })
 export class RecepiDetailsPage implements OnInit {
   meal: any;
+  ingredients = [];
+  instructions = [];
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -19,9 +21,24 @@ export class RecepiDetailsPage implements OnInit {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     this.recepiesService
       .getMealById(id)
-      .subscribe((data) => (this.meal = data));
+      .subscribe((data) => this.process(data));
+  }
 
-    console.log('Done2!');
+  process(data: any) {
+    this.meal = data;
+    for (let i = 1; i < 21; i++) {
+      let ingrName = 'strIngredient' + i;
+      let ingrQuant = 'strMeasure' + i;
+      if (Boolean(this.meal[ingrName]) && Boolean(this.meal[ingrQuant])) {
+        let pair = {};
+        pair['key'] = this.meal[ingrName];
+        pair['value'] = this.meal[ingrQuant];
+        this.ingredients.push(pair);
+      }
+    }
+    let string = this.meal.strInstructions;
+    let array = string.split('\r\n');
+    this.instructions = array;
   }
 
   openWebsite() {
