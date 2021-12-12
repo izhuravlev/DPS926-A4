@@ -3,17 +3,18 @@ import { Observable } from 'rxjs';
 import { RecepiesService } from 'src/app/services/recepies.service';
 
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss'],
+  selector: 'app-tab4',
+  templateUrl: './tab4.page.html',
+  styleUrls: ['./tab4.page.scss'],
 })
-export class Tab2Page {
+export class Tab4Page implements OnInit {
   results: Observable<any>;
 
   constructor(private recepiesService: RecepiesService) {}
 
   ngOnInit() {
-    this.results = this.recepiesService.getRandomMeal();
-    console.log('Done!');
+    this.recepiesService
+      .getCategories()
+      .subscribe((data) => (this.results = data));
   }
 }

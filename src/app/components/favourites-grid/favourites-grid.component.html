@@ -1,0 +1,21 @@
+<ion-grid class="grid-categories">
+  <ion-row *ngFor="let item of items; let i = index">
+    <ion-col *ngIf="i % 2 == 0">
+      <ion-card button [routerLink]="" class="grid-card">
+        <img [src]="item.strCategoryThumb" class="image" />
+        <p class="name">{{ item.strCategory }}</p>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+<ion-grid class="grid-categories">
+  <ion-row *ngFor="let item of items; let i = index">
+    <ion-col *ngIf="i % 2 != 0">
+      <ion-card button [routerLink]="" class="grid-card">
+        <img [src]="item.strCategoryThumb" class="image" />
+        <p class="name">{{ item.strCategory }}</p>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>
