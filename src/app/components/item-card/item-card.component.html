@@ -1,6 +1,6 @@
 <ion-card
   button
-  *ngFor="let item of meal"
+  *ngFor="let item of meal | async"
   [routerLink]="['/recepi-details', item.idMeal]"
 >
   <!-- [routerLink]="['/movie-details', item.imdbID]" -->

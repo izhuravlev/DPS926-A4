@@ -20,12 +20,19 @@
     </ion-row>
     <ion-row>
       <ion-col>
+        <ion-button expand="block" color="danger" (click)="openWebsite()"
+          >Watch on YouTube</ion-button
+        >
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
         <h1>Ingredients:</h1>
       </ion-col>
     </ion-row>
     <ion-row *ngFor="let item of ingredients">
-      <ion-col> {{item.key}} </ion-col>
-      <ion-col> {{item.value}} </ion-col>
+      <ion-col> {{item.name}} </ion-col>
+      <ion-col> {{item.strMeasure}} </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
@@ -34,6 +41,13 @@
     </ion-row>
     <ion-row *ngFor="let item of instructions">
       <ion-col> {{item}} </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" color="success" (click)="storeData()"
+          >Save Recipe</ion-button
+        >
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
